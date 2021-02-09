@@ -93,10 +93,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
-  formInputtext: {
-    color: colors.black,
-    fontSize: 15,
-  },
   goToSignIn: {
     color: colors.white,
     fontSize: 20,
@@ -109,16 +105,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 90,
-  },
-  textLogIn: {
-    fontSize: 16,
-    color: colors.darkGray,
-  },
-  textError: {
-    fontSize: 13,
-    color: colors.red,
-    marginLeft: 10,
-    fontWeight: 'bold',
   },
   forgotPassword: {
     fontSize: 18,

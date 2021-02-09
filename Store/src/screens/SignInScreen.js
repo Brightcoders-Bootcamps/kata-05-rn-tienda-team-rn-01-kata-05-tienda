@@ -100,11 +100,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
   },
-  formInputtext: {
-    color: colors.black,
-    fontSize: 13,
-    padding: 3,
-  },
   goToSignIn: {
     color: colors.white,
     fontSize: 20,
@@ -117,23 +112,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 90,
-  },
-  textLogIn: {
-    fontSize: 16,
-    color: colors.darkGray,
-  },
-  goToLogIn: {
-    color: colors.blue,
-  },
-  restricted_password: {
-    fontSize: 11,
-    marginLeft: 16,
-  },
-  textError: {
-    color: colors.red,
-    fontSize: 12,
-    marginLeft: 5,
-    padding: 3,
   },
   image: {
     flex: 1,
