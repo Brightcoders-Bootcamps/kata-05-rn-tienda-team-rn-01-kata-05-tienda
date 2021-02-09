@@ -1,6 +1,17 @@
 export default contentText = {
-    logInTitle: 'Log In',
-    signUpTitle: 'Sign Up',
-    signUpGoogle: 'Sign Up with Google',
-    };
-  
+  SigInTitle: 'Sign In',
+  SigInTitleM: 'SIGN IN',
+  signUpTitle: 'Sign Up',
+  signUpGoogle: 'Sign Up with Google',
+  forgotPassword: 'Forgot password?',
+  firstName: 'First Name',
+  email: 'Email *',
+  password: 'Password *',
+  noAccount: "Don't have an account? ",
+  haveAccount: 'Already have an account?',
+  createAccount: 'CREATE ACCOUNT',
+  createAccountM: 'Create Account',
+  errorName: 'Please, insert your name.',
+  errorEmail: 'Please, insert your email.',
+  errorPassword: 'Please, insert your password.',
+};
