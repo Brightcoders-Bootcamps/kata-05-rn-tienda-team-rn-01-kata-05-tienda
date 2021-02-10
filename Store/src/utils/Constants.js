@@ -14,4 +14,6 @@ export default contentText = {
   errorName: 'Please, insert your name.',
   errorEmail: 'Please, insert your email.',
   errorPassword: 'Please, insert your password.',
+  resetPassword: 'Reset Password',
+  resetPasswordM: 'RESET PASSWORD',
 };
