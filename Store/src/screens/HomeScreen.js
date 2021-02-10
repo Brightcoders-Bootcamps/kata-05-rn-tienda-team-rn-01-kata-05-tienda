@@ -1,12 +1,11 @@
 import React, {useContext, useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ScrollView, Alert} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Alert, Button} from 'react-native';
 import {AuthContext} from '../navigation/AuthProvider';
 import colors from '../utils/Colors';
 import IconLogout from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeScreen = ({navigation}) => {
   const {user, logout} = useContext(AuthContext);
-
   return (
     <View style={styles.container}>
       <View style={styles.headContainer}>
@@ -18,6 +17,7 @@ const HomeScreen = ({navigation}) => {
         />
       </View>
       <Text style={styles.title}>Welcome {user.uid} </Text>
+      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
     </View>
   );
 };
