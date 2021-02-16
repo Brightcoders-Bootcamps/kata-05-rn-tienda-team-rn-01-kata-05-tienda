@@ -5,14 +5,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerContent from './DrawerContent';
 import HomeScreen from '../screens/HomeScreen';
 import AppStack from './AppStack';
+import MyOrderScreen from '../screens/MyOrderScreen';
 
-const MyOrder = () => {
-  return (
-    <View>
-      <Text>My Order</Text>
-    </View>
-  );
-};
 
 const Offers = () => {
   return (
@@ -78,7 +72,7 @@ const DrawerMenu = () => {
   return (
     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name="AppStack" component={AppStack} />
-      <Drawer.Screen name="MyOrder" component={MyOrder} />
+      <Drawer.Screen name="MyOrderScreen" component={MyOrderScreen} />
       <Drawer.Screen name="Offers" component={Offers} />
       <Drawer.Screen name="Notifications" component={Notifications} />
       <Drawer.Screen name="OurBrances" component={OurBrances} />
