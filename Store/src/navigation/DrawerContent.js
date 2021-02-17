@@ -25,7 +25,7 @@ const DrawerContent = (props) => {
           <DrawerItem
             icon={() => <Icon name="shopping-cart" size={30} color="#fff" />}
             label={() => <Text style={styles.label}>My Order</Text>}
-            onPress={() => props.navigation.navigate('MyOrder')}
+            onPress={() => props.navigation.navigate('MyOrderScreen')}
           />
           <DrawerItem
             icon={() => <Icon name="local-offer" size={30} color="#fff" />}
