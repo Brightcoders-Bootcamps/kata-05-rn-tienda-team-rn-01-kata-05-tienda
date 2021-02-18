@@ -3,13 +3,16 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Card} from 'react-native-elements';
 import colors from '../utils/Colors';
 
-const CategoryFlatListItem = ({props}) => {
+const CategoryFlatListItem = ({props, navigation}) => {
   return (
     <View style={styles.itemContainer}>
       <Card>
-        <Card.Image source={props.image} style={styles.image}>
-          <Text style={styles.quantityText}>{props.quantity}</Text>
-        </Card.Image>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ProductDetails', {props: props})}>
+          <Card.Image source={props.image} style={styles.image}>
+            <Text style={styles.quantityText}>{props.quantity}</Text>
+          </Card.Image>
+        </TouchableOpacity>
         <View style={{alignItems: 'center'}}>
           <Text style={styles.nameAndPriceText}>{props.name}</Text>
           <Text style={styles.nameAndPriceText}>{'$' + props.price}</Text>
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
   image: {height: 70},
   nameAndPriceText: {
     color: colors.gray,
-    fontSize: 13,
+    fontSize: 12,
   },
   addToCardText: {
     color: colors.gray,

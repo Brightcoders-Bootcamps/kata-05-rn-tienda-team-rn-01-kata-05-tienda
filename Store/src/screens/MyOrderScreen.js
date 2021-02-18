@@ -111,7 +111,6 @@ const MyOrderScreen = ({navigation}) => {
             );
           })}
         </ScrollView>
-        <BottomMenu />
       </View>
     </ImageBackground>
   );

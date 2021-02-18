@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import BottomMenu from './BottomMenu';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../utils/Colors';
@@ -9,16 +9,19 @@ import CategoryFlatList from '../components/CategoryFlatList';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const CategoryScreen = () => {
+const CategoryScreen = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.topButtons}>
-        <Icon name="menu" size={40} color="#fff" />
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <Icon name="menu" size={40} color="#fff" />
+        </TouchableOpacity>
         <Text style={styles.text}>{'Home'}</Text>
-        <Icon name="shopping-cart" size={40} color="#fff" />
+        <TouchableOpacity onPress={() => navigation.navigate('MyOrderScreen')}>
+          <Icon name="shopping-cart" size={40} color="#fff" />
+        </TouchableOpacity>
       </View>
-      <CategoryFlatList />
-      <BottomMenu />
+      <CategoryFlatList navigation={navigation} />
     </View>
   );
 };
