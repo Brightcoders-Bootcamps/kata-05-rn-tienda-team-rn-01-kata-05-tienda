@@ -1,12 +1,9 @@
 import * as React from 'react';
 import {View, Text, Button} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerContent from './DrawerContent';
-import HomeScreen from '../screens/HomeScreen';
-import AppStack from './AppStack';
-import MyOrderScreen from '../screens/MyOrderScreen';
 
+import TabNavigation from './TabNavigation';
 
 const Offers = () => {
   return (
@@ -56,29 +53,20 @@ const Logout = () => {
   );
 };
 
-function Home({navigation}) {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Feed Screen</Text>
-      <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />
-    </View>
-  );
-}
-
 const Drawer = createDrawerNavigator();
 
 const DrawerMenu = () => {
   return (
-    <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-      <Drawer.Screen name="AppStack" component={AppStack} />
-      <Drawer.Screen name="MyOrderScreen" component={MyOrderScreen} />
-      <Drawer.Screen name="Offers" component={Offers} />
-      <Drawer.Screen name="Notifications" component={Notifications} />
-      <Drawer.Screen name="OurBrances" component={OurBrances} />
-      <Drawer.Screen name="Contact Us" component={ContactUs} />
-      <Drawer.Screen name="Feedback" component={Feedback} />
-      <Drawer.Screen name="Logout" component={Logout} />
+    <Drawer.Navigator
+      initialRouteName={'BottomMenu'}
+      drawerContent={(props) => <DrawerContent {...props} />}>
+      <Drawer.Screen name={'BottomMenu'} component={TabNavigation} />
+      <Drawer.Screen name={'Offers'} component={Offers} />
+      <Drawer.Screen name={'Notifications'} component={Notifications} />
+      <Drawer.Screen name={'OurBrances'} component={OurBrances} />
+      <Drawer.Screen name={'Contact Us'} component={ContactUs} />
+      <Drawer.Screen name={'Feedback'} component={Feedback} />
+      <Drawer.Screen name={'Logout'} component={Logout} />
     </Drawer.Navigator>
   );
 };

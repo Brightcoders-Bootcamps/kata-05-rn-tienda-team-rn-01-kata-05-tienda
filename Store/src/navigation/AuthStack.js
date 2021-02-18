@@ -2,8 +2,7 @@ import React, {useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import LogInScreen from '../screens/LogInScreen';
 import SignInScreen from '../screens/SignInScreen';
-import  ForgotPassword from '../screens/ForgotPassword';
-
+import ForgotPassword from '../screens/ForgotPassword';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +19,7 @@ const AuthStack = () => {
         component={SignInScreen}
         options={{header: () => null}}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
         options={{header: () => null}}

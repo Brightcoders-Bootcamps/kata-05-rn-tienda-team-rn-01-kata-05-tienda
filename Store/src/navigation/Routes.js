@@ -5,6 +5,8 @@ import {AuthContext} from './AuthProvider';
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 import DrawerMenu from './DrawerMenu';
+import {createStackNavigator} from '@react-navigation/stack';
+import ProductDetails from '../screens/ProductDetails';
 
 const Routes = () => {
   const {user, setUser} = useContext(AuthContext);

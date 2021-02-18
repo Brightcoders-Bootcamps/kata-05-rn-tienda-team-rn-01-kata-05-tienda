@@ -20,7 +20,7 @@ const DrawerContent = (props) => {
           <DrawerItem
             icon={() => <Icon name="home" size={30} color="#fff" />}
             label={() => <Text style={styles.label}>Home</Text>}
-            onPress={() => props.navigation.navigate('Home')}
+            onPress={() => props.navigation.navigate('CategoryScreen')}
           />
           <DrawerItem
             icon={() => <Icon name="shopping-cart" size={30} color="#fff" />}
