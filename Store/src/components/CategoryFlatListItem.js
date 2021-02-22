@@ -1,22 +1,46 @@
-import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, {useContext} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {Card} from 'react-native-elements';
 import colors from '../utils/Colors';
+import firestore from '@react-native-firebase/firestore';
+import {AuthContext} from '../navigation/AuthProvider';
+import {data} from '../components/OrderData';
+
+let products = data.products;
+var order = 'order1544';
 
 const CategoryFlatListItem = ({props, navigation}) => {
+ let imageSource= props.image;
+
+  const {user} = useContext(AuthContext);
+  const onRegister = () => {
+    products.push({
+      order: order,
+      name: props.name,
+      name: props.name,
+      image:props.image,
+      price:props.price,
+      unit:props.unit,
+      quantity:props.quantity,
+    });
+    Alert.alert('agregado');
+  };
+
   return (
     <View style={styles.itemContainer}>
       <Card>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ProductDetails', {props: props})}>
-          <Card.Image source={props.image} style={styles.image}>
+          onPress={() => navigation.navigate('ProductDetails', {props: props, navigation:navigation })}>
+          <Card.Image 
+          source={{uri: imageSource}} 
+          style={styles.image}>
             <Text style={styles.quantityText}>{props.quantity}</Text>
           </Card.Image>
         </TouchableOpacity>
         <View style={{alignItems: 'center'}}>
           <Text style={styles.nameAndPriceText}>{props.name}</Text>
           <Text style={styles.nameAndPriceText}>{'$' + props.price}</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onRegister}>
             <Text style={styles.addToCardText}>{'Add to cart'}</Text>
           </TouchableOpacity>
         </View>

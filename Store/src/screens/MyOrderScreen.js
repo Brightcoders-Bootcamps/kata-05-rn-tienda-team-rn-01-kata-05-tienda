@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect,useContext} from 'react';
 import {
   View,
   Text,
@@ -7,38 +7,31 @@ import {
   TouchableOpacity,
   ScrollView,
   Button,
+  Alert,
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../utils/Colors';
 import TrashIcon from 'react-native-vector-icons/Entypo';
 import BottomMenu from './BottomMenu';
+import firestore from '@react-native-firebase/firestore';
+import {data} from '../components/OrderData';
+import {AuthContext} from '../navigation/AuthProvider';
+let products = data.products;
 
 const MyOrderScreen = ({navigation}) => {
+  const {user} = useContext(AuthContext);
   const [total, setTotal] = useState(0);
-  const [products, setProducts] = useState([
-    {
-      key: 1,
-      name: 'Apple',
-      price: '10',
-      quantity: '1 kg',
-      ruta: require('../img/manzana.jpg'),
-    },
-    {
-      key: 2,
-      name: 'Dried',
-      price: '20',
-      quantity: '1 kg',
-      ruta: require('../img/manzana.jpg'),
-    },
-    {
-      key: 1,
-      name: 'Cabbage',
-      price: '15',
-      quantity: '1 kg',
-      ruta: require('../img/manzana.jpg'),
-    },
-  ]);
+
+
+
+  const onRegister = async () => {
+    await firestore()
+    .collection('Orders' )
+    .doc(user.uid)
+    .set({products});
+    Alert.alert("order");
+  }
 
   return (
     <ImageBackground source={require('../img/fondo.png')} style={styles.image}>
@@ -57,7 +50,7 @@ const MyOrderScreen = ({navigation}) => {
 
       <View style={styles.title}>
         <Text style={{color: colors.white}}>Sub Total = {total}$</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onRegister}>
           <Text style={styles.CheckOut}>Check Out Now</Text>
         </TouchableOpacity>
       </View>
@@ -70,10 +63,9 @@ const MyOrderScreen = ({navigation}) => {
                 <View style={styles.mainText}>
                   <View>
                     <Image
-                      source={product.ruta}
+                  source={{uri: product.image}}
                       style={styles.imageProduct}></Image>
                   </View>
-
                   <View style={{display: 'flex', justifyContent: 'flex-start'}}>
                     <View>
                       <View style={styles.productName}>
@@ -87,7 +79,7 @@ const MyOrderScreen = ({navigation}) => {
                         </TouchableOpacity>
                       </View>
                       <Text style={{color: colors.gray}}>
-                        {product.quantity}
+                        {product.quantity} {product.unit}
                       </Text>
                       <Text style={{color: colors.gray}}>
                         $ {product.price}
@@ -122,7 +114,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    marginTop: 22,
+    marginTop: 20,
     marginBottom: 90,
     height: 500,
   },

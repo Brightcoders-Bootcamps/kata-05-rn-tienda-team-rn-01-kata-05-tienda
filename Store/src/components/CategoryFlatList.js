@@ -1,43 +1,39 @@
-import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import React,{useEffect,useState} from 'react';
+import {FlatList, StyleSheet,Alert} from 'react-native';
 import CategoryFlatListItem from './CategoryFlatListItem';
 import colors from '../utils/Colors';
 
-var json = [
-  {
-    id: 1,
-    name: 'Apple',
-    image: require('../img/manzana.jpg'),
-    price: 101.0,
-    quantity: '1kg',
-    category: 'fruit',
-    description: 'Poner descripcion',
-  },
-  {
-    id: 2,
-    name: 'Strawberry',
-    image: require('../img/fresa.jpeg'),
-    price: 102.0,
-    quantity: '2kg',
-    category: 'fruit',
-    description: 'Poner descripcion',
-  },
-  {
-    id: 3,
-    name: 'Orange',
-    image: require('../img/naranja.jpeg'),
-    price: 103.0,
-    quantity: '3kg',
-    category: 'fruit',
-    description: 'Poner descripcion',
-  },
-];
+import firestore from '@react-native-firebase/firestore';
+
 
 const CategoryFlatList = ({navigation}) => {
+  const [products, setProducts] = useState([]);
+  const [loadData, setLoadData] = useState(false);
+  
+  useEffect(() => {
+    firestore()
+      .collection('Products')
+      .get()
+      .then((e) => {
+        const productArray = [];
+        e.forEach((doc) => {
+          const data = doc.data();
+          data.id = doc.id;
+          productArray.push(data);
+        });
+        setProducts(productArray);
+      })
+      .catch(function (error) {
+        Alert.alert('Error Reload Data');
+      });
+    setLoadData(false);
+  }, [loadData]);
+  
+
   return (
     <FlatList
       style={styles.flatList}
-      data={json}
+      data={products}
       renderItem={({item}) => (
         <CategoryFlatListItem props={item} navigation={navigation} />
       )}
