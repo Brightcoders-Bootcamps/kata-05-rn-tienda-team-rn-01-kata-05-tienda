@@ -13,31 +13,31 @@ import BottomMenu from './BottomMenu';
 import {data} from '../components/OrderData';
 
 let products = data.products;
-var order="order1544";
-
+var order = 'order1544';
 
 const ProductDetails = ({route}) => {
-  let imageSource=route.params.props.image;
+  let imageSource = route.params.props.image;
 
-  const onRegister =()=>{
-    products.push( {
+  const onRegister = () => {
+    products.push({
       order: order,
       name: route.params.props.name,
-      image:route.params.props.image,
+      image: route.params.props.image,
       price: route.params.props.price,
-      unit:route.params.props.unit,
-      quantity:route.params.props.quantity,
-    })
-    Alert.alert("agregado");
-  }
+      unit: route.params.props.unit,
+      quantity: route.params.props.quantity,
+    });
+    Alert.alert('agregado');
+  };
   console.log(route);
 
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.navbar}>
-          <TouchableOpacity    onPress={() => route.params.navigation.openDrawer()}>
-            <Icon name="menu" size={40} color="#A6BCD0" ></Icon>
+          <TouchableOpacity
+            onPress={() => route.params.navigation.openDrawer()}>
+            <Icon name="menu" size={40} color="#A6BCD0"></Icon>
           </TouchableOpacity>
           <TouchableOpacity>
             <Text style={[styles.strongColor, {fontSize: 25, paddingTop: 6}]}>
@@ -45,11 +45,17 @@ const ProductDetails = ({route}) => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Icon name="cart" size={40} color="#A6BCD0"  onPress={() => route.params.navigation.navigate('MyOrderScreen')}  ></Icon>
+            <Icon
+              name="cart"
+              size={40}
+              color="#A6BCD0"
+              onPress={() =>
+                route.params.navigation.navigate('MyOrderScreen')
+              }></Icon>
           </TouchableOpacity>
         </View>
         <View style={styles.boxShadow}>
-       <Image source={{uri: imageSource}}  style={styles.image}></Image>
+          <Image source={{uri: imageSource}} style={styles.image}></Image>
         </View>
         <View style={styles.infoDivider}>
           <View>

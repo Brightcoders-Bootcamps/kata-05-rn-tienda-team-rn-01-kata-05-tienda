@@ -1,15 +1,14 @@
-import React,{useEffect,useState} from 'react';
-import {FlatList, StyleSheet,Alert} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, StyleSheet, Alert} from 'react-native';
 import CategoryFlatListItem from './CategoryFlatListItem';
 import colors from '../utils/Colors';
 
 import firestore from '@react-native-firebase/firestore';
 
-
 const CategoryFlatList = ({navigation}) => {
   const [products, setProducts] = useState([]);
   const [loadData, setLoadData] = useState(false);
-  
+
   useEffect(() => {
     firestore()
       .collection('Products')
@@ -28,7 +27,6 @@ const CategoryFlatList = ({navigation}) => {
       });
     setLoadData(false);
   }, [loadData]);
-  
 
   return (
     <FlatList

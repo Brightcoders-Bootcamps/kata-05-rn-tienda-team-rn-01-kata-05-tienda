@@ -1,4 +1,4 @@
-import React, {useState,useEffect,useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
   View,
   Text,
@@ -23,15 +23,10 @@ const MyOrderScreen = ({navigation}) => {
   const {user} = useContext(AuthContext);
   const [total, setTotal] = useState(0);
 
-
-
   const onRegister = async () => {
-    await firestore()
-    .collection('Orders' )
-    .doc(user.uid)
-    .set({products});
-    Alert.alert("order");
-  }
+    await firestore().collection('Orders').doc(user.uid).set({products});
+    Alert.alert('order');
+  };
 
   return (
     <ImageBackground source={require('../img/fondo.png')} style={styles.image}>
@@ -63,7 +58,7 @@ const MyOrderScreen = ({navigation}) => {
                 <View style={styles.mainText}>
                   <View>
                     <Image
-                  source={{uri: product.image}}
+                      source={{uri: product.image}}
                       style={styles.imageProduct}></Image>
                   </View>
                   <View style={{display: 'flex', justifyContent: 'flex-start'}}>

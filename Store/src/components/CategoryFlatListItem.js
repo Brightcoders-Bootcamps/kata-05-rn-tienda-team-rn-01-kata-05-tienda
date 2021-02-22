@@ -10,7 +10,7 @@ let products = data.products;
 var order = 'order1544';
 
 const CategoryFlatListItem = ({props, navigation}) => {
- let imageSource= props.image;
+  let imageSource = props.image;
 
   const {user} = useContext(AuthContext);
   const onRegister = () => {
@@ -18,10 +18,10 @@ const CategoryFlatListItem = ({props, navigation}) => {
       order: order,
       name: props.name,
       name: props.name,
-      image:props.image,
-      price:props.price,
-      unit:props.unit,
-      quantity:props.quantity,
+      image: props.image,
+      price: props.price,
+      unit: props.unit,
+      quantity: props.quantity,
     });
     Alert.alert('agregado');
   };
@@ -30,10 +30,13 @@ const CategoryFlatListItem = ({props, navigation}) => {
     <View style={styles.itemContainer}>
       <Card>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ProductDetails', {props: props, navigation:navigation })}>
-          <Card.Image 
-          source={{uri: imageSource}} 
-          style={styles.image}>
+          onPress={() =>
+            navigation.navigate('ProductDetails', {
+              props: props,
+              navigation: navigation,
+            })
+          }>
+          <Card.Image source={{uri: imageSource}} style={styles.image}>
             <Text style={styles.quantityText}>{props.quantity}</Text>
           </Card.Image>
         </TouchableOpacity>
