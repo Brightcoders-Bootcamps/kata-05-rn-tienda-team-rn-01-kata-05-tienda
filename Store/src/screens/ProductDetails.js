@@ -6,16 +6,37 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import BottomMenu from './BottomMenu';
+import {data} from '../components/OrderData';
+
+let products = data.products;
+var order = 'order1544';
 
 const ProductDetails = ({route}) => {
+  let imageSource = route.params.props.image;
+
+  const onRegister = () => {
+    products.push({
+      order: order,
+      name: route.params.props.name,
+      image: route.params.props.image,
+      price: route.params.props.price,
+      unit: route.params.props.unit,
+      quantity: route.params.props.quantity,
+    });
+    Alert.alert('agregado');
+  };
+  console.log(route);
+
   return (
     <ScrollView>
       <View style={styles.container}>
         <View style={styles.navbar}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => route.params.navigation.openDrawer()}>
             <Icon name="menu" size={40} color="#A6BCD0"></Icon>
           </TouchableOpacity>
           <TouchableOpacity>
@@ -24,11 +45,17 @@ const ProductDetails = ({route}) => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Icon name="cart" size={40} color="#A6BCD0"></Icon>
+            <Icon
+              name="cart"
+              size={40}
+              color="#A6BCD0"
+              onPress={() =>
+                route.params.navigation.navigate('MyOrderScreen')
+              }></Icon>
           </TouchableOpacity>
         </View>
         <View style={styles.boxShadow}>
-          <Image source={route.params.props.image} style={styles.image}></Image>
+          <Image source={{uri: imageSource}} style={styles.image}></Image>
         </View>
         <View style={styles.infoDivider}>
           <View>
@@ -53,7 +80,7 @@ const ProductDetails = ({route}) => {
                   styles.strongColor,
                   {alignSelf: 'center', marginLeft: 10, marginRight: 10},
                 ]}>
-                {route.params.props.quantity}
+                {route.params.props.quantity} {route.params.props.unit}
               </Text>
               <Icon name="plus-circle-outline" size={45} color="#A6BCD0"></Icon>
             </View>
@@ -61,7 +88,7 @@ const ProductDetails = ({route}) => {
         </View>
       </View>
       <View>
-        <TouchableOpacity style={styles.cartButton}>
+        <TouchableOpacity style={styles.cartButton} onPress={onRegister}>
           <Text style={styles.cartTitle}>Add to cart</Text>
         </TouchableOpacity>
       </View>
