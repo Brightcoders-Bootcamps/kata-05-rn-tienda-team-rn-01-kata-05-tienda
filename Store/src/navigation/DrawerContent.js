@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
+import { View, Text, StyleSheet } from 'react-native';
+import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import colors from '../utils/Colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const DrawerContent = (props) => {
   return (
-    <View style={{flex: 1, backgroundColor: colors.teal}}>
+    <View style={{ flex: 1, backgroundColor: colors.teal }}>
       <DrawerContentScrollView {...props}>
         <View>
           <View style={styles.titleContiner}>
@@ -24,8 +24,11 @@ const DrawerContent = (props) => {
           />
           <DrawerItem
             icon={() => <Icon name="shopping-cart" size={30} color="#fff" />}
-            label={() => <Text style={styles.label}>My Order</Text>}
-            onPress={() => props.navigation.navigate('MyOrderScreen')}
+            label={() => <Text style={styles.label}>My Orders</Text>}
+            onPress={() => {
+              // original props.navigation.navigate('MyOrderScreen')
+              props.navigation.navigate('OrdersScreen')
+            }}
           />
           <DrawerItem
             icon={() => <Icon name="local-offer" size={30} color="#fff" />}
