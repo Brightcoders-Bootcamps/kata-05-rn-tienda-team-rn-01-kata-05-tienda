@@ -1,8 +1,9 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AppStack from './AppStack';
 import MyOrderScreen from '../screens/MyOrderScreen';
-import {Text, StyleSheet} from 'react-native';
+import OrdersScreen from '../screens/OrdersScreen'
+import { Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../utils/Colors';
 import ProductDetails from '../screens/ProductDetails';
@@ -25,13 +26,13 @@ const TabNavigation = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        style: {height: 70},
+        style: { height: 70 },
         activeTintColor: colors.teal,
         inactiveTintColor: colors.gray,
       }}
       initialRouteName={'AppStack'}
-      screenOptions={({route}) => ({
-        tabBarIcon: ({color}) => {
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color }) => {
           if (route.name === 'AppStack') {
             return (
               <Icon name="storefront-outline" size={30} color={color}></Icon>
@@ -65,6 +66,7 @@ const TabNavigation = () => {
       <Tab.Screen name={'relleno1'} component={relleno1} />
       <Tab.Screen name={'ProductDetails'} component={ProductDetails} />
       <Tab.Screen name={'MyOrderScreen'} component={MyOrderScreen} />
+      <Tab.Screen name={'OrdersScreen'} component={OrdersScreen} />
       <Tab.Screen name={'relleno3'} component={relleno3} />
     </Tab.Navigator>
   );
