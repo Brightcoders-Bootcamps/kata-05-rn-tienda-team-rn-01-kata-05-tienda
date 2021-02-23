@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import BottomMenu from './BottomMenu';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../utils/Colors';
