@@ -17,8 +17,8 @@ const windowHeight = Dimensions.get('window').height;
 
 const CategoryScreen = ({navigation}) => {
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.topButtons}>
+    <ImageBackground source={require('../img/fondo2.png')} style={styles.image}>
+     <View style={styles.topButtons}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Icon name="menu" size={40} color="#fff" />
         </TouchableOpacity>
@@ -28,14 +28,14 @@ const CategoryScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <CategoryFlatList navigation={navigation} />
-    </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  image: {
     flex: 1,
-    backgroundColor: colors.teal,
+    resizeMode: 'cover',
   },
   topButtons: {
     flexDirection: 'row',

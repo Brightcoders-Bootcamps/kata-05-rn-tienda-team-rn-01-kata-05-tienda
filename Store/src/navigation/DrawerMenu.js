@@ -1,9 +1,12 @@
-import * as React from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, Button} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerContent from './DrawerContent';
 import TabNavigation from './TabNavigation';
 import OrdersScreen from '../screens/OrdersScreen';
+import {AuthContext} from './AuthProvider';
+
+
 
 const Offers = () => {
   return (
@@ -45,17 +48,21 @@ const Feedback = () => {
   );
 };
 
-const Logout = () => {
-  return (
-    <View>
-      <Text>Logout</Text>
-    </View>
-  );
-};
+
 
 const Drawer = createDrawerNavigator();
 
 const DrawerMenu = () => {
+  const {user, logout} = useContext(AuthContext);
+  
+  const Logout = () => {
+    logout();
+    return(
+      <>
+      </>
+    );
+    };
+
   return (
     <Drawer.Navigator
       initialRouteName={'BottomMenu'}
