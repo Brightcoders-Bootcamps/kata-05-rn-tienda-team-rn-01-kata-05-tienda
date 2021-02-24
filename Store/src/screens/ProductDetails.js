@@ -29,8 +29,7 @@ const ProductDetails = ({route}) => {
     });
     Alert.alert('agregado');
   };
-  console.log(route);
-
+ 
   return (
     <ScrollView>
       <View style={styles.container}>

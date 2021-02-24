@@ -29,7 +29,7 @@ const MyOrderScreen = ({navigation}) => {
   };
 
   return (
-    <ImageBackground source={require('../img/fondo.png')} style={styles.image}>
+    <ImageBackground source={require('../img/fondo2.png')} style={styles.image}>
       <View style={styles.title}>
         <Icon
           name="menu"
@@ -109,9 +109,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    marginTop: 20,
+    marginTop: 15,
     marginBottom: 90,
-    height: 500,
+    height: 450,
   },
   image: {
     flex: 1,
