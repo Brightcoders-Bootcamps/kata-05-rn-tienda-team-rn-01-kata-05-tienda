@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {View, Text, Button} from 'react-native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import DrawerContent from './DrawerContent';
-
 import TabNavigation from './TabNavigation';
+import OrdersScreen from '../screens/OrdersScreen';
 
 const Offers = () => {
   return (
@@ -12,14 +12,6 @@ const Offers = () => {
     </View>
   );
 };
-
-const Orders = () => {
-  return (
-    <View>
-      <Text>Orders</Text>
-    </View>
-  );
-}
 
 const Notifications = () => {
   return (
@@ -70,7 +62,7 @@ const DrawerMenu = () => {
       drawerContent={(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name={'BottomMenu'} component={TabNavigation} />
       <Drawer.Screen name={'Offers'} component={Offers} />
-      <Drawer.Screen name={'Orders'} component={Orders} />
+      <Drawer.Screen name={'OrdersScreen'} component={OrdersScreen} />
       <Drawer.Screen name={'Notifications'} component={Notifications} />
       <Drawer.Screen name={'OurBrances'} component={OurBrances} />
       <Drawer.Screen name={'Contact Us'} component={ContactUs} />
