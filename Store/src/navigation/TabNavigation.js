@@ -1,13 +1,10 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AppStack from './AppStack';
-import MyOrderScreen from '../screens/MyOrderScreen';
 import {Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../utils/Colors';
-import ProductDetails from '../screens/ProductDetails';
-import OrdersScreen from '../screens/OrdersScreen';
-import OrderPlaced from '../screens/OrderPlaced';
+import MyOrderScreen from '../screens/MyOrderScreen';
 
 const relleno1 = () => {
   return <Text>"Relleno 1"</Text>;
@@ -23,7 +20,7 @@ const relleno3 = () => {
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigation = () => {
+const TabNavigation = ({p}) => {
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -38,14 +35,14 @@ const TabNavigation = () => {
             return (
               <Icon name="storefront-outline" size={30} color={color}></Icon>
             );
-          } else if (route.name === 'OrdersScreen') {
+          } else if (route.name === 'relleno1') {
             return (
               <Icon
                 name="star-box-multiple-outline"
                 size={30}
                 color={color}></Icon>
             );
-          } else if (route.name === 'ProductDetails') {
+          } else if (route.name === 'relleno2') {
             return (
               <Icon
                 name="plus-circle"
@@ -64,8 +61,8 @@ const TabNavigation = () => {
         },
       })}>
       <Tab.Screen name={'AppStack'} component={AppStack} />
-      <Tab.Screen name={'OrdersScreen'} component={OrdersScreen} />
-      <Tab.Screen name={'ProductDetails'} component={ProductDetails} />
+      <Tab.Screen name={'relleno1'} component={relleno1} />
+      <Tab.Screen name={'relleno2'} component={relleno2} />
       <Tab.Screen name={'MyOrderScreen'} component={MyOrderScreen} />
       <Tab.Screen name={'relleno3'} component={relleno3} />
     </Tab.Navigator>
