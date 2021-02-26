@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../utils/Colors';
 import ProductDetails from '../screens/ProductDetails';
 import OrdersScreen from '../screens/OrdersScreen';
+import OrderPlaced from '../screens/OrderPlaced';
 
 const relleno1 = () => {
   return <Text>"Relleno 1"</Text>;

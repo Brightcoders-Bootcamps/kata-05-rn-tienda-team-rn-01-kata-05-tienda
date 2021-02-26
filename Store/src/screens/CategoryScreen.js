@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../utils/Colors';
 import {Dimensions} from 'react-native';
 import CategoryFlatList from '../components/CategoryFlatList';
+import Splash from './Splash';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
