@@ -9,15 +9,18 @@ import {
   Button,
   Alert,
   Image,
+  Dimensions,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../utils/Colors';
 import TrashIcon from 'react-native-vector-icons/Entypo';
-import BottomMenu from './BottomMenu';
 import firestore from '@react-native-firebase/firestore';
 import {data} from '../components/OrderData';
 import {AuthContext} from '../navigation/AuthProvider';
 let products = data.products;
+
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 
 const MyOrderScreen = ({navigation}) => {
   const {user} = useContext(AuthContext);
@@ -37,7 +40,9 @@ const MyOrderScreen = ({navigation}) => {
           color={colors.white}
           onPress={() => navigation.openDrawer()}
         />
-        <Text style={{fontSize: 20, color: colors.white}}>My Order</Text>
+        <Text style={{fontSize: 20, color: colors.white, fontWeight: 'bold'}}>
+          My Order
+        </Text>
         <TouchableOpacity>
           <Icon name="cart" size={40} color={colors.white}></Icon>
         </TouchableOpacity>
@@ -159,10 +164,9 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   title: {
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 15,
+    marginTop: height * 0.05,
   },
   CheckOut: {
     borderWidth: 1,

@@ -6,8 +6,6 @@ import TabNavigation from './TabNavigation';
 import OrdersScreen from '../screens/OrdersScreen';
 import {AuthContext} from './AuthProvider';
 
-
-
 const Offers = () => {
   return (
     <View>
@@ -48,20 +46,15 @@ const Feedback = () => {
   );
 };
 
-
-
 const Drawer = createDrawerNavigator();
 
 const DrawerMenu = () => {
   const {user, logout} = useContext(AuthContext);
-  
+
   const Logout = () => {
     logout();
-    return(
-      <>
-      </>
-    );
-    };
+    return <></>;
+  };
 
   return (
     <Drawer.Navigator
