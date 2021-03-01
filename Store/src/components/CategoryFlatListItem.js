@@ -23,7 +23,7 @@ const CategoryFlatListItem = ({props, navigation}) => {
       unit: props.unit,
       quantity: props.quantity,
     });
-    Alert.alert('agregado');
+    Alert.alert('Product added to cart');
   };
 
   return (

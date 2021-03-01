@@ -6,8 +6,6 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-  Button,
-  Alert,
   Image,
   Dimensions,
 } from 'react-native';
@@ -28,9 +26,8 @@ const MyOrderScreen = ({navigation}) => {
 
   const onRegister = async () => {
     await firestore().collection('Orders').doc(user.uid).set({products});
-    Alert.alert('order');
+    navigation.navigate('orderPlaced');
   };
-
   return (
     <ImageBackground source={require('../img/fondo2.png')} style={styles.image}>
       <View style={styles.title}>

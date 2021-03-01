@@ -30,7 +30,7 @@ const ProductDetails = ({route}) => {
       unit: route.params.props.unit,
       quantity: route.params.props.quantity,
     });
-    Alert.alert('agregado');
+    Alert.alert('Product added to cart');
   };
 
   return (
